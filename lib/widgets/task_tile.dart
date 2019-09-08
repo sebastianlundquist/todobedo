@@ -15,13 +15,11 @@ class TaskTile extends StatelessWidget {
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,
         ),
       ),
-      trailing: TaskCheckbox(
-          checkboxState: isChecked,
-          toggleCheckboxState: (checkboxState) {
-            setState(() {
-              isChecked = checkboxState;
-            });
-          }),
+      trailing: Checkbox(
+        activeColor: Colors.lightBlueAccent,
+        value: isChecked,
+        onChanged: checkboxCallback,
+      ),
     );
   }
 }
