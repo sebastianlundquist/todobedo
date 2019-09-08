@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todobedo/models/task_data.dart';
 
 String newTaskTitle;
 
 class AddTaskScreen extends StatelessWidget {
-  AddTaskScreen(this.addTaskCallback);
-  final Function addTaskCallback;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +44,8 @@ class AddTaskScreen extends StatelessWidget {
               color: Colors.lightBlueAccent,
               textColor: Colors.white,
               onPressed: () {
-                addTaskCallback(newTaskTitle);
+                Provider.of<TaskData>(context).addTask(newTaskTitle);
+                Navigator.pop(context);
               },
             ),
           ],
